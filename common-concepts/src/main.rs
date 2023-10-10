@@ -1,20 +1,22 @@
-use std::io;
 fn main() {
-    let mut second = String::new();
+    let mut total = 0;
+    for fib in 1..7  {
+        total += fibonaci(fib);
+    }
+    println!("{total}");
 
-    io::stdin().read_line(&mut second).expect("Failed to read on the keyboard");
+    let romania = celsius(30.0);
+    println!("{}", romania)
+}
 
-    let second:u32 = match second.trim().parse() {
-        Ok(num) => num,
-        Err(_) => {
-            println!("Error");
-            return;
-        }
-    };
+fn fibonaci (number: i32)-> i32 {
+    if(number <=1){
+        return 1;
+    }
+    return fibonaci(number-1) + fibonaci(number-2);
+}
+// 1 2 3 5 8 13 21
 
-    let y = {
-        let x = 4;
-        x+1
-    };
-    println!("{}",y);
+fn celsius(grade:f32) -> f32{
+    return grade * 1.8 + 32.0;
 }
