@@ -14,7 +14,9 @@ fn main() {
 
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
-            Err(_) => continue,
+            Err(_) => {
+                println!("Failed to parse, enter a number");
+                continue},
         };
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too Small!!"),
