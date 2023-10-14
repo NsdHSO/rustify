@@ -12,6 +12,8 @@ fn main() {
     let verdict_for_notification: &str = send_notificaiton(&andrei);
     println!("{}", verdict_for_notification);
     andrei.add();
+
+    println!("You have this coin {}", find_coin(Coin::Quarter));
 }
 
 #[derive(Debug)]
@@ -49,5 +51,22 @@ fn send_notificaiton(user: &User) -> &str {
             println!("No notification was sended!");
             "You badly"
         }
+    }
+}
+
+
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
+fn find_coin(coin: Coin) -> u8{
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 3,
+        Coin::Dime => 5,
+        Coin::Quarter => 7,
     }
 }
