@@ -18,6 +18,8 @@ fn main() {
                 println!("Failed to parse, enter a number");
                 continue},
         };
+
+        ma
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too Small!!"),
             Ordering::Greater => println!("To big!"),
