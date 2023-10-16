@@ -37,16 +37,13 @@ fn is_pal(x: i32) -> bool {
 }
 
 fn convert_roman_in_int(s: &String) -> i32 {
-    let s_translated = s
+    s
         .replace("IV", "IIII")
         .replace("IX", "VIIII")
         .replace("XL", "XXXX")
         .replace("XC", "LXXXX")
         .replace("CD", "CCCC")
-        .replace("CM", "DCCCC");
-
-    println!("{}",s_translated);
-    s_translated.chars().map(|c| {
+        .replace("CM", "DCCCC").chars().map(|c| {
         match c {
             'I' => 1,
             'V' => 5,
