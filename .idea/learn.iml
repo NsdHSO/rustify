@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/fresh-leet/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/common-concepts/target" />
       <excludeFolder url="file://$MODULE_DIR$/fresh-leet/target" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/target" />
+      <excludeFolder url="file://$MODULE_DIR$/shop/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
