@@ -1,9 +1,23 @@
-use std::collections::HashSet;
-use std::cmp;
+mod longest_common;
+mod valid_parentheses;
+use std::collections::HashMap;
+use std::ops::Add;
 
 fn main() {
-    let mut roman_string= String::from("LVIIIV");
-    println!("{:?}", convert_roman_in_int(&roman_string));
+    let mut s1 = String::from("TEST");
+    let s2 = String::from("TEST");
+    let s5 = String::from("(({}))");
+    println!("{:?}", valid_parentheses::is_valid(s5));
+}
+
+struct StringA {
+    value: String,
+}
+
+impl StringA {
+    fn adda(&mut self, new: &String) {
+        self.value += new
+    }
 }
 
 fn find_median_sorted_arrays(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
@@ -14,7 +28,6 @@ fn find_median_sorted_arrays(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
     println!("{:?}", (c_vec.len() - 1 >> 1));
     (c_vec[c_len] + c_vec[c_len + (c_vec.len() - 1 & 1)]) as f64 / 2.0
 }
-
 
 fn is_palindrome(x: i32) -> bool {
     let binding = x.to_string();
@@ -37,14 +50,14 @@ fn is_pal(x: i32) -> bool {
 }
 
 fn convert_roman_in_int(s: &String) -> i32 {
-    s
-        .replace("IV", "IIII")
+    s.replace("IV", "IIII")
         .replace("IX", "VIIII")
         .replace("XL", "XXXX")
         .replace("XC", "LXXXX")
         .replace("CD", "CCCC")
-        .replace("CM", "DCCCC").chars().map(|c| {
-        match c {
+        .replace("CM", "DCCCC")
+        .chars()
+        .map(|c| match c {
             'I' => 1,
             'V' => 5,
             'X' => 10,
@@ -53,6 +66,6 @@ fn convert_roman_in_int(s: &String) -> i32 {
             'D' => 500,
             'M' => 1000,
             _ => 0,
-        }
-    }).sum()
+        })
+        .sum()
 }
